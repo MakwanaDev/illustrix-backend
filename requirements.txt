@@ -6,12 +6,13 @@ mongoengine==0.27.0
 PyJWT
 Pillow==9.2.0
 pilgram==1.2.1
-email-validator
-pydantic[email]
 pymongo
 pytz
 tensorflow==2.8.1
-pydantic==1.10.2
+pydantic
+email-validator
+pydantic[email]
 typing
 tf_slim==1.1.0
 boto3
+urllib==3.20.*
