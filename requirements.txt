@@ -11,7 +11,6 @@ pytz
 tensorflow==2.8.1
 pydantic
 email-validator
-pydantic[email]
 typing
 tf_slim==1.1.0
 boto3
