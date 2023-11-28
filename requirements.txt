@@ -15,4 +15,4 @@ pydantic[email]
 typing
 tf_slim==1.1.0
 boto3
-urllib==3.20.*
+protobuf==3.20.*
