@@ -10,6 +10,7 @@ pymongo
 pytz
 tensorflow==2.8.1
 pydantic
+pydantic-settings
 email-validator
 typing
 tf_slim==1.1.0
