@@ -1,4 +1,5 @@
-# from pydantic import BaseSettings
+# from pydantic import Class
+from typing import ClassVar
 from pydantic_settings import BaseSettings
 from pymongo import MongoClient
 from config.credentials import DB_USERNAME, DB_PASSWORD
@@ -35,7 +36,7 @@ class Constants(BaseSettings):
 constants = Constants()
 
 class FileStructure(BaseSettings):
-    SERVER_URL = "http://localhost:8000/"
+    SERVER_URL: ClassVar[str] = "http://localhost:8000/"
     BASE_STRUCTURE: list = ["/upload/", "/final/", "/background_remove/", "/background/", "/background_blur/", "/combined_image/", "/flip_vertically/", "/flip_horizontally/", "/black_and_white/", "/saturation/", "/hue/", "/contrast/", "/brightness/", "/sharpness/", "/painting/", "/sketching/", "/cartoonification/", "/image_super_resolution/"]
     USER_DATA: str = "static/user_data/"
     STATIC_FOLDER: str = "./static/"
