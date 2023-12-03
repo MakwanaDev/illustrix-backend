@@ -2,7 +2,6 @@
 from typing import ClassVar
 from pydantic_settings import BaseSettings
 from pymongo import MongoClient
-from config.credentials import DB_USERNAME, DB_PASSWORD
 import os
 from dotenv import load_dotenv
 
