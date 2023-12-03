@@ -199,9 +199,10 @@ def check_copy_file_exist(original_path: str,sub_path: str, file_name: str) -> s
     file = file_name.split(".")[0]
     copy_path = sub_path.replace(file, file + file_structure.COPY_FILE_SUFFIX)
     file_key = copy_path
-
     try:
         # Use the head_object method to check if the file exists
+        print('\n\nBucket Name : ', bucket_name)
+        print('\n\nfile key : ', file_key)
         s3.head_object(Bucket=bucket_name, Key=file_key)
         print(f"File {file_key} exists in the bucket {bucket_name}.\n\n")
         return copy_path

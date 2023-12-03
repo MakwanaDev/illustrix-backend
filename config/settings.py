@@ -20,7 +20,7 @@ class S3_credentials(BaseSettings):
     aws_access_keyid: str = 'AKIARGPTIVBM3RH6CTDV'
     aws_secret_accesskey: str = '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'
 
-s3_credentials = S3_credentials()
+s3_credentials = S3_credentials()   
 
 class JWT(BaseSettings):
     JWT_Secret: str = "Femj4ul1V2Xk3A3Amy6w7cE9gVAdn96Y"
