@@ -17,8 +17,11 @@ db_connector = DatabaseConnector()
 # print('111111111111')
 @router.post("/login")
 async def login(request: Request) -> JSONResponse:
+    body = await request.json()
+    print('----Before try Body.....')
     try:
         body = await request.json()
+        print('After try ----------body', body)
         email = body["email"]
         password = body["password"]
         user_details = search_by_email(email)
@@ -31,6 +34,7 @@ async def login(request: Request) -> JSONResponse:
                 response.message = constants.SUCCESS_LOGIN
                 return JSONResponse(status_code=status.HTTP_200_OK, content=response.dict(exclude_none=True))
         else:
+            print('\n\In Login Else respnse..')
             response = Response()
             response.message = constants.INVALID_LOGIN
             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=response.dict(exclude_none=True))
@@ -42,16 +46,22 @@ async def login(request: Request) -> JSONResponse:
 
 @router.post("/signup")
 async def singup(request: Request) -> JSONResponse:
+    print('\n\nBefore try Sign up............')
     try:
+        print('\n\n............After try Sign up')
         body = await request.json()
+        print('\n\nAfter body........ await')
         user_model = User(first_name = body["first_name"], last_name = body["last_name"], email = body["email"], password = body["password"])
+        print("After user moddel\n\n......!!!!")
         user_model.validate()   
+        print("After user moddel validate \n\n......!!!!")
         insert_one_user(user_model)
         response = Response()
         response.message = constants.SUCCESS_SIGNUP
         return JSONResponse(status_code=status.HTTP_200_OK, content=response.dict(exclude_none=True))
     except Exception as e:
         print(e)
+        print('\n\In Signup Else respnse..')
         response = Response()
         response.message = constants.ERROR
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content=response.dict(exclude_none=True))
