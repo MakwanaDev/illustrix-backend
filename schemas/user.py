@@ -11,9 +11,9 @@ class User(BaseModel):
     updated_at: datetime
 
 class Response(BaseModel):
-    message: Optional[str]
-    jwt: Optional[str]
-    email: Optional[EmailStr]
-    password: Optional[str]
-    first_name: Optional[str]
-    last_name: Optional[str]
+    message: Optional[str] = None
+    jwt: Optional[str] = None 
+    email: Optional[EmailStr] = None
+    password: Optional[str] = None
+    first_name: Optional[str] = None 
+    last_name: Optional[str] = None

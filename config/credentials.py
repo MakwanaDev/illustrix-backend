@@ -1,2 +1,0 @@
-DB_USERNAME='Dev_Makwana'
-DB_PASSWORD='dqZVrXLhivQbhnRV'

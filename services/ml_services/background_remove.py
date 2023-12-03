@@ -9,7 +9,10 @@ import requests
 from PIL import Image
 from io import BytesIO
 import io
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 class SimilarBufferedReader:
     def __init__(self, bytes_io):
         self.bytes_io = bytes_io
@@ -30,7 +33,7 @@ def background_remove_fun(file_name: str, image_url: str, email: str) -> str:
                 image_buffer = io.BytesIO(image_data)
                 buffered_image = SimilarBufferedReader(image_buffer)
 
-            url = 'http://ec2-54-89-161-98.compute-1.amazonaws.com:8100/predicts'
+            url = os.getenv('BR_API')
             name = image_url.split('/')[-1]
             files1 = {'file': (f'{name}', buffered_image, 'image/png')}
             

@@ -3,9 +3,13 @@ from typing import ClassVar
 from pydantic_settings import BaseSettings
 from pymongo import MongoClient
 from config.credentials import DB_USERNAME, DB_PASSWORD
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class DBSettings(BaseSettings):
-    client_uri: str = f'mongodb://{DB_USERNAME}:{DB_PASSWORD}@ac-meaznnx-shard-00-00.dptppqe.mongodb.net:27017,ac-meaznnx-shard-00-01.dptppqe.mongodb.net:27017,ac-meaznnx-shard-00-02.dptppqe.mongodb.net:27017/?ssl=true&replicaSet=atlas-rbzl2v-shard-0&authSource=admin&retryWrites=true&w=majority'
+    client_uri: str = f"mongodb://{os.getenv('DB_USERNAME')}:{os.getenv('DB_PASSWORD')}@ac-meaznnx-shard-00-00.dptppqe.mongodb.net:27017,ac-meaznnx-shard-00-01.dptppqe.mongodb.net:27017,ac-meaznnx-shard-00-02.dptppqe.mongodb.net:27017/?ssl=true&replicaSet=atlas-rbzl2v-shard-0&authSource=admin&retryWrites=true&w=majority"
     db_name: str = 'illustrix_db'
     # db_host: str = "localhost"
     # db_port: int = 27017
