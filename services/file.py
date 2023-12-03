@@ -203,7 +203,7 @@ def check_copy_file_exist(original_path: str,sub_path: str, file_name: str) -> s
         # Use the head_object method to check if the file exists
         print('\n\nBucket Name : ', bucket_name)
         print('\n\nfile key : ', file_key, type(file_key))
-        s3.head_object(Bucket=bucket_name, Key = file_key)
+        s3.head_object(Bucket=bucket_name, Key = 'static/user_data/dev@gmail.com/sketching/XZ4FUEJFUA_copy.png')
         print(f"File {file_key} exists in the bucket {bucket_name}.\n\n")
         return copy_path
     except NoCredentialsError:
