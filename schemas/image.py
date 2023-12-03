@@ -3,5 +3,5 @@ from datetime import datetime
 from typing import Optional
 
 class Response(BaseModel):
-    message: Optional[str]
-    url: Optional[str]
+    message: Optional[str] = None
+    url: Optional[str] = None
