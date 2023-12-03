@@ -55,8 +55,11 @@ async def singup(request: Request) -> JSONResponse:
         print("After user moddel\n\n......!!!!")
         user_model.validate()   
         print("After user moddel validate \n\n......!!!!")
+        print('\n\nUser Model : ', user_model)
         insert_one_user(user_model)
+        print("\n\nAfter insert user...")
         response = Response()
+        print("\n\nCreating response ...")
         response.message = constants.SUCCESS_SIGNUP
         return JSONResponse(status_code=status.HTTP_200_OK, content=response.dict(exclude_none=True))
     except Exception as e:
