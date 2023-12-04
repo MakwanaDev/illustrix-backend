@@ -206,8 +206,8 @@ def check_copy_file_exist(original_path: str,sub_path: str, file_name: str) -> s
         s3.head_object(Bucket=bucket_name, Key=file_key)
         print(f"File {file_key} exists in the bucket {bucket_name}.\n\n")
         return copy_path
-    except NoCredentialsError:
-        print("AWS credentials are not available, or the bucket does not exist.")
+    # except NoCredentialsError:
+    #     print("AWS credentials are not available, or the bucket does not exist.")
     except Exception as e:
         print(f"File {file_key} does not exist in the bucket {bucket_name}.\n\n")
         return original_path
