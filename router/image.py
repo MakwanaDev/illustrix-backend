@@ -454,9 +454,7 @@ async def get_user_images(request: Request) -> JSONResponse:
         print(validate_jwt_token)
         if validate_jwt_token == 100:
             user_details = get_user_data_by_jwt(jwt_token)
-            # print('HELLLLLLLLLLLLLO33333333333333')
             global_url = get_user_images_by_email(email = user_details["email"])
-            # print('HELLLLLLLLLLLLLO55555555555')
             response = Response()
             response.message = constants.SUCCESSFULLY_PERFORMED
             response.url = global_url

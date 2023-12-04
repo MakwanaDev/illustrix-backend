@@ -117,7 +117,7 @@ def create_base_structure(email: str) -> None:
     s3 = boto3.client('s3', aws_access_key_id='AKIARGPTIVBM3RH6CTDV', aws_secret_access_key='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')
 
     # Define the S3 bucket name
-    bucket_name = 'illustrix-image-data'
+    bucket_name = s3_credentials.bucket_nm
 
     base_folder = file_structure.USER_DATA + email
     
@@ -202,6 +202,7 @@ def check_copy_file_exist(original_path: str,sub_path: str, file_name: str) -> s
 
     try:
         # Use the head_object method to check if the file exists
+        print(f"File {file_key} exists in the bucket {bucket_name}.\n\n")
         s3.head_object(Bucket=bucket_name, Key=file_key)
         print(f"File {file_key} exists in the bucket {bucket_name}.\n\n")
         return copy_path
