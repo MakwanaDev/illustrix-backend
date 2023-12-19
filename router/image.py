@@ -20,8 +20,8 @@ from services.ml_services.sharpness import sharpness_fun
 from services.ml_services.background_replace import background_replace_fun
 from services.ml_services.painting import painting_fun
 from services.ml_services.sketching import sketching_fun
-# from services.ml_services.cartoonification import cartoonification_fun
-# from services.ml_services.image_super_resolution import image_super_resolution_fun
+from services.ml_services.cartoonification import cartoonification_fun
+from services.ml_services.image_super_resolution import image_super_resolution_fun
 from services.file import upload_image
 from services.file import generate_presigned_url
 
